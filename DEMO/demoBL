@@ -1,0 +1,143 @@
+package Algorithms;
+import java.util.*;
+import Utility.Utility;
+
+public class FindYourNumber {
+
+public static void main(String[] args) {
+int x=Integer.parseInt(args[0]);
+Utility obj=new Utility();
+obj.findno(x);
+
+}
+
+}
+
+
+
+
+
+public static void findno(int n) {
+Scanner obj= new Scanner(System.in);
+int count=1;
+double N=Math.pow(2, n);
+System.out.println(N);
+// TODO Auto-generated method stub
+int numarray[]=new int[(int) N];
+for (int i=1;i<N;i++) {
+numarray[i]=i;
+}
+System.out.println("Think of a number between 0 to"+N);
+int first = 0, last = numarray.length;
+  int mid = (first + last)/2;  
+  while(count==1) {
+  System.out.println("press '1' if your number is between "+numarray[first]+" to "+numarray[mid]+" Else press '0'");
+  int check=obj.nextInt();
+  if(check==1) {
+  last=mid-1;
+  mid = (first + last)/2;
+  }
+  else {
+  first=mid+1;
+  mid = (first + last)/2;
+  }
+  if(first==mid || last==mid) {
+  System.out.println("press '1' if your number is between "+numarray[first]+" to "+numarray[first]+" Else press '0'");
+  check=obj.nextInt();
+  if(check==1)
+  System.out.println("Your choosen number is"+ first);
+  else
+  System.out.println("Your choosen number is"+ last);
+  count=0;
+  }
+  }
+}
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////
+
+payment money
+
+
+ublic class MonthlyPayments {
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		System.out.println("enter principal ,year and rate");
+		double p = s.nextDouble();
+		double y = s.nextDouble();
+		double r = s.nextDouble();
+		s.close();
+		System.out.println("mothly payment is " + Util.monthlyPayment(p, y, r));
+	}
+}
+
+
+
+
+static double monthlyPayment(double p, double y, double r) {
+		double n = 12 * y;
+		double r0 = r / (12 * 100);
+		double payment = p * r0 / (1 - Math.pow((1 + r0), -n));
+		return payment;
+	}
+
+
+
+
+
+
+
+////////////////////////////////////////////////
+sqit
+
+static double sqrt(double c) {
+
+		double t = c;
+		double epsilon = 1e-15;
+		while (Math.abs(t - c / t) > epsilon * t) {
+			t = (c / t + t) / 2;
+		}
+
+		return t;
+	}
+
+
+
+  public static void main(String[] args) throws Exception {
+		try {
+			Scanner s = new Scanner(System.in);
+			System.out.println("enter no to find square root");
+			double c = s.nextDouble();
+			System.out.println("square root is " + Util.sqrt(c));
+			s.close();
+		} catch (Exception e) {
+			System.out.println("inter integer value "+e.getMessage());
+		}
+
+	}
+}
+
+
+
+////////////////////////////////////////////////////
+decimal to binary
+
+static int[] toBinary(int d) {
+
+		String bin = "";
+		while (d != 0) {
+			bin = (d % 2) + bin;
+			d /= 2;
+		}
+		while (bin.length() % 4 != 0) {
+			bin = 0 + bin;
+		}
+		return stringToIntArray(bin);
+	}
